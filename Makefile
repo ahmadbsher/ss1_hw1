@@ -4,7 +4,7 @@ OBJECTS_MAIN=main.o
 OBJECTS_LIB_REC=basicClassification.o advancedClassificationRecursion.o
 OBJECTS_LIB_LOOP=basicClassification.o advancedClassificationLoop.o
 FLAGS= -Wall -g
-EXE=mainsrec mainsloop maindloop maindrec mains
+EXE=mains mainsloop maindloop maindrec
 
 #target commands
 all: $(EXE)
