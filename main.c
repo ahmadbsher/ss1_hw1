@@ -5,11 +5,10 @@
 #include "advancedClassificationRecursion.c"
 int main()
 {
-    printf("please enter the first number: ");
+    
     int a;
     scanf("%d",&a);
     
-    printf("please enter the second number: ");
     int b;
     scanf("%d",&b);
     printf("the Armstrong numbers are:");
