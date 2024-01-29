@@ -4,7 +4,7 @@ OBJECTS_MAIN=main.o
 OBJECTS_LIB_REC=basicClassification.o advancedClassificationRecursion.o
 OBJECTS_LIB_LOOP=basicClassification.o advancedClassificationLoop.o
 FLAGS= -Wall -g
-EXE=mainsrec mainsloop maindloop maindrec
+EXE=mainsrec mainsloop maindloop maindrec mains
 
 #target commands
 all: $(EXE)
@@ -12,6 +12,8 @@ mainsrec: $(OBJECTS_MAIN) libclassrec.a
 	$(CC) $(FLAGS) -o mainsrec $(OBJECTS_MAIN) libclassrec.a -lm
 mainsloop: $(OBJECTS_MAIN) libclassloop.a 
 	$(CC) $(FLAGS) -o mainsloop $(OBJECTS_MAIN) libclassloop.a -lm
+mains: $(OBJECTS_MAIN) libclassrec.a
+	$(CC) $(FLAGS) -o mains $(OBJECTS_MAIN) libclassrec.a -lm
 maindloop: $(OBJECTS_MAIN) libclassloop.so
 	$(CC) $(FLAGS) -o maindloop $(OBJECTS_MAIN) ./libclassloop.so -lm
 maindrec: $(OBJECTS_MAIN) libclassrec.so
@@ -26,8 +28,8 @@ libclassrec.so: $(OBJECTS_LIB_REC)
 libclassloop.so: $(OBJECTS_LIB_LOOP)
 	$(CC) -shared -o libclassloop.so $(OBJECTS_LIB_LOOP)
 #static libs
-libclassrec.a: $(OBJECTS_LIB_REC)
-	$(AR) -rcs libclassrec.a $(OBJECTS_LIB_REC)
+libclassrec.a: $(OBJECTS_LIB_REC) $(OBJECTS_MAIN)
+	$(AR) -rcs libclassrec.a $(OBJECTS_LIB_REC) $(OBJECTS_MAIN)
 libclassloop.a: $(OBJECTS_LIB_LOOP)
 	$(AR) -rcs libclassloop.a $(OBJECTS_LIB_LOOP)
 #objects
