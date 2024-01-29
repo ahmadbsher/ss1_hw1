@@ -1,32 +1,35 @@
 #include "NumClass.h"
 
-int fact(int r)  
-{  
-    int mul=1;  
-    for(int i=1;i<=r;i++)  
-    {  
-        mul=mul*i;  
-    }  
-    return mul;    
-}  
 
-int isStrong(int x){
-    int k = x , sum=0 , r=0;;
-    while(k!=0)  
-        {  
-            r=k%10;  
-            int f=fact(r);  
-            k=k/10;  
-            sum=sum+f;  
+int isPrime(int x){
+    for (int i = 2; i < x; i++)
+    {
+        if (x%i==0)
+        {
+            return 0;
         }
-    if (sum == x) return 1; //this is a strong number
-    return 0;
-}
-
-int isPrime(int x) {
-    
-    for (int i=2 ; i*i< x ; i++) {
-        if (x%i == 0) return 0;
     }
     return 1;
+    
+}
+
+int isStrong(int x){
+    int sum=0;
+    int m=1;
+    while (x>0)
+    {
+        for ( int i = 1; i <= x%10; i++)
+        {
+            m=m*i;
+        }
+        sum=sum+m;
+        m=1;   
+    }
+    if(sum==x){
+        return 1;
+    }
+    return 0;
+    
+    
+    
 }

@@ -13,4 +13,3 @@ int isPrime(int);
 1! + 4! + 5! = 145
 */
 int isStrong(int);
-
