@@ -2,12 +2,12 @@
 #include "NumClass.h"
 
  
-    int isPrime(int n)
+    int isPrime(int x)
     {
     	
-    	for(int i=2;i<=n/2;i++)
+    	for(int i=2;i<=x/2;i++)
     	{
-    		if(n%i==0)
+    		if(x%i==0)
             {
     		    return 0;
             }
@@ -15,22 +15,22 @@
     	return 1;
     }
     //factorial of the digit
-    int factorial(int r) 
+    int factorial(int x) 
     {
-   int fact = 1;
-   while(r>1) {
-      fact = fact * r;
-      r--;
+   int i = 1;
+   while(x>1) {
+      i = i * x;
+      x--;
     }
-   return fact;
+   return i;
     }
 int isStrong(int n)
  {
-   int temp, rem, result = 0;
+   int temp, k, result = 0;
    temp = n;
    while(temp) {
-      rem = temp % 10;
-      result = result + factorial(rem);
+      k = temp % 10;
+      result = result + factorial(k);
       temp = temp/10;
    }
    if (result == n)

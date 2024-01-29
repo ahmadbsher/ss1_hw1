@@ -4,12 +4,12 @@
 //power function helper
 int pow_h(int num,int x)
 {
-    int numpow=1;
+    int pow=1;
     for(int i=0;i<x;i++)
     {
-        numpow*=num;
+        pow=pow*num;
     }
-    return numpow;
+    return pow;
 } 
 
 int isArmstrong(int number)
@@ -47,18 +47,18 @@ int isPalindrome(int num)
 {
     int n = num;
  
-    int rev = 0;
+    int reverse = 0;
  
     while (n)
     {
         int r = n % 10;
  
         
-        rev = rev * 10 + r;
+        reverse = reverse * 10 + r;
  
         
         n = n / 10;
     }
  
-    return (num == rev);
+    return (num == reverse);
 }
