@@ -8,12 +8,10 @@ EXE=mainsrec mainsloop maindloop maindrec mains
 
 #target commands
 all: $(EXE)
-mainsrec: $(OBJECTS_MAIN) libclassrec.a 
+mains: $(OBJECTS_MAIN) libclassrec.a 
 	$(CC) $(FLAGS) -o mainsrec $(OBJECTS_MAIN) libclassrec.a -lm
 mainsloop: $(OBJECTS_MAIN) libclassloop.a 
 	$(CC) $(FLAGS) -o mainsloop $(OBJECTS_MAIN) libclassloop.a -lm
-mains: $(OBJECTS_MAIN) libclassrec.a
-	$(CC) $(FLAGS) -o mains $(OBJECTS_MAIN) libclassrec.a -lm
 maindloop: $(OBJECTS_MAIN) libclassloop.so
 	$(CC) $(FLAGS) -o maindloop $(OBJECTS_MAIN) ./libclassloop.so -lm
 maindrec: $(OBJECTS_MAIN) libclassrec.so
