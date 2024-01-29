@@ -28,8 +28,8 @@ libclassrec.so: $(OBJECTS_LIB_REC)
 libclassloop.so: $(OBJECTS_LIB_LOOP)
 	$(CC) -shared -o libclassloop.so $(OBJECTS_LIB_LOOP)
 #static libs
-libclassrec.a: $(OBJECTS_LIB_REC) $(OBJECTS_MAIN)
-	$(AR) -rcs libclassrec.a $(OBJECTS_LIB_REC) $(OBJECTS_MAIN)
+libclassrec.a: $(OBJECTS_LIB_REC)
+	$(AR) -rcs libclassrec.a $(OBJECTS_LIB_REC)
 libclassloop.a: $(OBJECTS_LIB_LOOP)
 	$(AR) -rcs libclassloop.a $(OBJECTS_LIB_LOOP)
 #objects
