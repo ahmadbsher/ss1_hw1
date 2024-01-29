@@ -1,40 +1,54 @@
-#include "NumClass.h"
 #include <stdio.h>
-
-int main(){
-    int a =0 ,b =0;
-    scanf("%d" , &a);
-    scanf("%d" , &b);
-
-    printf("The Palindromes are:");
-    for (int i=a ; i<=b ; i++){
-        if(isPalindrome(i))
-            printf(" %d" ,i);
-    }
-    printf("\n");
-
-    printf("The Prime numbers are:");
-    for (int i=a ; i<=b ; i++){
-        if(isPrime(i))
-            printf(" %d" ,i);
-    }
-    printf("\n");
-
+#include "NumClass.h"
+#include "basicClassification.c"
+#include "advancedClassificationLoop.c"
+#include "advancedClassificationRecursion.c"
+int main()
+{
+    printf("please enter the first number: ");
+    int a;
+    scanf("%d",&a);
     
-    printf("The Armstrong numbers are:");
-    for (int i=a ; i<=b ; i++){
-        if(isArmstrong(i))
-            printf(" %d" ,i);
+    printf("please enter the second number: ");
+    int b;
+    scanf("%d",&b);
+    printf("the Armstrong numbers are:");
+    for(int i=a; i<b;i++)
+    {
+         if(isArmstrong(i)==1)
+         {
+            printf("%d ",i);
+         }
+        
     }
-    printf("\n");
-
-    printf("The Strong numbers are:");
-    for (int i=a ; i<=b ; i++){
-        if(isStrong(i))
-            printf(" %d" ,i);
+ 
+     printf("the palindrome numbers are:");
+    for(int i=a; i<b;i++)
+    {
+         if(isPalindrome(i)==1)
+         {
+            printf("%d ",i);
+         }
+        
     }
-    printf("\n");
+     printf("the prime numbers are:");
+    for(int i=a; i<b;i++)
+    {
+         if(isPrime(i)==1)
+         {
+            printf("%d ",i);
+         }
+        
+    }
+     printf("the strong numbers are:");
+    for(int i=a; i<b;i++)
+    {
+         if(isStrong(i)==1)
+         {
+            printf("%d ",i);
+         }
+        
+    }
     return 0;
 }
-
-    
+ 

@@ -1,43 +1,64 @@
+#include <stdio.h>
 #include "NumClass.h"
-#include <math.h>
 
-int isPalindrome(int x){
-    int originalnumber=x;
-    int i=0;
-    for (int x ; x>0 ; x/10)
+//power function helper
+int pow_h(int num,int x)
+{
+    int numpow=1;
+    for(int i=0;i<x;i++)
     {
-        i=i+(x%10);
-        i=i*10;
-
+        numpow*=num;
     }
-    if (originalnumber==i)
-    {
-        return 1;
-    }
-    return 0;
-}
+    return numpow;
+} 
 
-int isArmstrong(int x){
-    int originalnumber;
-    originalnumber=x;
-    int digits=0;
+int isArmstrong(int number)
+{
+    int lastdigit=0;
+    int power=0;
     int sum=0;
-    while (x>0)
+    int times=0;
+    int n = number;
+    int n1=number;
+
+    while (n1!=0)
     {
-        digits=digits+1;
-        x=x/10;
+        times+=1;
+        n1/=10;
+
     }
-    while (x>0)
+
+    while(n!=0)
     {
-      
-        int f=x%10;
-        int s=pow(f,digits);
-        sum=sum+s;
-        x=x/10;
-    }
-    if (sum=originalnumber)
-    {
+
+        lastdigit = n%10;
+        power= pow_h(lastdigit,times);
+        sum+=power;
+
+        n/=10;
+
+    } 
+    if (sum==number) 
         return 1;
+    else
+        return 0;
+}
+int isPalindrome(int num)
+{
+    int n = num;
+ 
+    int rev = 0;
+ 
+    while (n)
+    {
+        int r = n % 10;
+ 
+        
+        rev = rev * 10 + r;
+ 
+        
+        n = n / 10;
     }
-    return 0;
+ 
+    return (num == rev);
 }

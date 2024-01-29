@@ -1,48 +1,70 @@
+#include <stdio.h>
 #include "NumClass.h"
-#include <math.h>
 
-int digits(int x){
-    int d=1;
-    while (x>9)
+//power function helper
+int pow_hr(int num,int x)
+{
+    int numpow=1;
+    for(int i=0;i<x;i++)
     {
-        d=d+1;
-        x=x/10;
+        numpow*=num;
     }
-    return d;   
+    return numpow;
+} 
+
+int Check_Armstrong (int Number, int Times)
+{
+  static int Reminder, Sum = 0;
+  if (Number > 0)
+   {
+     Reminder = Number %10;
+     int s = pow_hr(Reminder,Times);
+     Sum = Sum + s;
+     Check_Armstrong (Number /10, Times);
+     return Sum;
+   }
+   else
+     return 0;
 }
 
-int reverse(int x){
-    int d=digits(x);
-    if (x==0)
+int isArmstrongRec(int num)
+{
+    int times=0;
+    int num1=num;
+    while (num1!=0)
+    {
+        times+=1;
+        num1/=10;
+    }
+    if(num==Check_Armstrong(num,times))
+    {
+        return 1;
+    }
+    else
     {
         return 0;
     }
-    return((x%10)*pow(10,d-1)+reverse(x/10));
 }
 
-int isPalindrome(int x){
-    if (x==reverse(x))
-    {
-        return 1;
-    }
-    return 0;
-}
-
-int isArmstrongR(int x){
+int reverse(int num)
+{
+    int rem=0;
     int sum=0;
-    int d=digits(x);
-    while (x>0)
-    {
-        return(sum+pow(x%10,d)+isArmstrongR(x/10));
+    if(num!=0){
+            rem=num%10;
+            sum=sum*10+rem;
+            reverse(num/10);
     }
-    return 0;
-}
+        else
+            return sum;
+    return sum;
+} 
 
-int isArmstrong(int x){
-    if (x==isArmstrongR(x))
+int isPalindromeRec(int num)
+{
+    if(num == reverse(num))
     {
         return 1;
     }
     return 0;
-    
 }
